@@ -1,0 +1,47 @@
+@import "../../styles";
+
+// Mixin for color and align pattern
+@mixin color-align {
+  color: $source-color;
+  text-align: center;
+}
+
+// Headers
+h1 {
+  @include color-align;
+  font-family: 'Vibur', cursive;
+  font-weight: 500;
+  font-size: 4.5rem;
+}
+
+h1, h4 {
+  @include color-align;
+  margin-bottom: 2rem;
+}
+
+h4 {
+  font-family: 'cursive', cursive;
+  font-size: 2rem;
+}
+
+// Form style
+label {
+  font-family: 'cursive', cursive;
+  color: white;
+  font-size: 2rem;
+  font-weight: normal;
+}
+
+.login-form {
+  padding: 2rem;
+  border-radius: 4px;
+  background-color: rgba(91, 65, 129, .9);
+}
+
+// Form button
+.btn {
+  font-family: 'cursive', cursive;
+  background-color: white;
+  color: $source-color;
+  font-size: 2rem;
+}

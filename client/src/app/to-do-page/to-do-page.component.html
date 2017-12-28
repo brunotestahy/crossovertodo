@@ -1,0 +1,105 @@
+<div class="row">
+
+  <div class="col-sm-6">
+
+    <div class="panel panel-default">
+      <div class="panel-heading progress-heading"><h2>In Progress</h2></div>
+      <div class="panel-body">
+        <ul class="list-group">
+          <li *ngFor="let todo of todos; let i = index"
+              class="list-group-item"
+              draggable="true"
+              (dragstart)="onDrag(draggableElement, todo)"
+              #draggableElement
+              [@fadeTransition]="todos">
+
+            <h4 class="list-group-item-heading">
+              <label for="todo-description"
+                     *ngIf="!todo.isEditable"
+                     (click)="onEditorClick(todo, i)">{{ todo.title }}
+              </label>
+              <input [(ngModel)]="todo.title"
+                     id="todo-title"
+                     class="form-control"
+                     *ngIf="todo.isEditable"
+                     (keydown.enter)="editTodo(todo)">
+            </h4>
+
+            <p class="list-group-item-text">
+              <label for="todo-description"
+                     *ngIf="!todo.isEditable"
+                     (click)="onEditorClick(todo, i)">{{ todo.description }}
+              </label>
+              <input [(ngModel)]="todo.description"
+                     id="todo-description"
+                     class="form-control"
+                     *ngIf="todo.isEditable"
+                     (keydown.enter)="editTodo(todo)">
+            </p>
+
+            <span class="glyphicon glyphicon-remove-circle"
+                  aria-hidden="true"
+                  (click)="deleteTodo(todo)">
+            </span>
+
+            <button type="button"
+                    class="btn btn-success update-btn"
+                    (click)="editTodo(todo)"
+                    *ngIf="todo.isEditable">Update
+            </button>
+
+            <p class="text-right author"
+               *ngIf="!todo.isEditable">{{ 'Owner: ' + todo.author.username }}
+            </p>
+          </li>
+        </ul>
+
+        <p class="text-center">
+          <a class="btn btn-primary"
+             (click)="addNewTodo()">Add New Item
+          </a>
+        </p>
+      </div><!--panel-body-->
+
+    </div><!--panel panel-default-->
+
+  </div><!--col-sm-6-->
+
+  <div class="col-sm-6">
+
+    <div class="panel panel-default">
+      <div class="panel-heading completed-heading"><h2>Completed</h2></div>
+
+      <div class="panel-body"
+           (drop)="onDrop()"
+           (dragover)="allowDrop($event)">
+        <ul class="list-group"
+            #droppableElement>
+          <li *ngFor="let item of droppedItems"
+              class="list-group-item"
+              [@fadeTransition]="droppedItems">
+            <h4 class="list-group-item-heading">{{ item.title }}</h4>
+            <p class="list-group-item-text">{{ item.description }}</p>
+            <span class="glyphicon glyphicon-remove-circle"
+                  aria-hidden="true"
+                  (click)="deleteCompletedTodo(item)">
+            </span>
+            <p class="text-right author">{{ 'Owner: ' + item.author.username }}
+            </p>
+          </li>
+        </ul>
+      </div><!--panel-body-->
+
+    </div><!--panel panel-default-->
+
+  </div><!--col-sm-6-->
+
+  <div class="row">
+    <div class="panel panel-{{typePanel}}"
+         *ngIf="showPanel"
+         [@fadeTransition]="showPanel">
+      <header class="panel-heading">{{messagePanel}}</header>
+    </div>
+  </div><!--row-->
+
+</div><!--row-->

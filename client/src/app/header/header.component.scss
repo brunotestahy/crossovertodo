@@ -1,0 +1,47 @@
+@import "../../styles";
+
+// Content
+div {
+  .container-fluid {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+  }
+}
+
+// Logout link
+.logout {
+  cursor: pointer;
+  font-size: 2rem;
+  color: white !important;
+  margin-top: 1.3rem;
+  &:hover {
+    color: #ccc !important;
+  }
+}
+
+// Navbar
+.navbar-default {
+  background-color: $source-color;
+  height: 8rem;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+.navbar-text {
+  font-family: 'Vibur', cursive;
+  color: white;
+  margin-top: 2.5rem;
+  font-size: 3rem;
+  font-weight: bolder;
+}
+
+// Logout link on mobile devices
+@media screen and (max-width: 768px) {
+  .logout {
+    position: absolute;
+    top: -6.5rem;
+    right: 0;
+  }
+}

@@ -1,0 +1,95 @@
+// List style
+ul {
+  max-height: 50vh;
+  overflow-y: auto;
+  li {
+    min-height: 8rem;
+  }
+}
+
+// Title and description to-do style
+.list-group-item {
+  margin-bottom: 1rem;
+  border-color: rgba(91, 65, 129, 0.5);
+  .list-group-item-heading {
+    font-weight: bold;
+    width: 75%;
+  }
+  .list-group-item-text {
+    font-family: 'cursive', cursive;
+    label {
+      font-family: 'cursive', cursive;
+      font-weight: normal;
+    }
+    margin-top: 1rem;
+    width: 75%;
+  }
+}
+
+// Close item button
+.glyphicon-remove-circle {
+  color: indianred;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  cursor: pointer;
+  font-size: 1.7rem;
+}
+
+// Buttons
+.btn {
+  font-family: cursive;
+}
+
+// Update button
+.update-btn {
+  bottom: 1rem;
+  position: absolute;
+  right: 1rem;
+  font-size: 1rem;
+}
+
+// Add button
+.btn-primary {
+  background-color: orange;
+  border-color: rgba(91, 65, 129, 0.5);
+  &:hover {
+    background-color: rgba(91, 65, 129, 1);
+  }
+}
+
+// Panel
+.row > .panel {
+  position: fixed;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+}
+
+.panel-default {
+  border-color: rgba(91, 65, 129, 0.5);
+}
+
+.progress-heading {
+  h2 {
+    font-family: cursive;
+    color: white;
+  }
+  background-color: orange;
+  text-align: center;
+}
+
+.completed-heading {
+  h2 {
+    font-family: cursive;
+    color: white;
+  }
+  background-color: limegreen;
+  text-align: center;
+}
+
+// Author to-do style
+.author {
+  font-family: 'cursive', cursive;
+}
+
